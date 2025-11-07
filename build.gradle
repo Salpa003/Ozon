@@ -12,8 +12,14 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.1.0'
 
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.1.0'
+    compileOnly 'jakarta.servlet.jsp:jakarta.servlet.jsp-api:4.0.0'
+
+    implementation 'org.hibernate:hibernate-core:7.0.8.Final'
+    runtimeOnly 'org.postgresql:postgresql:42.7.7'
+    implementation "org.projectlombok:lombok:1.18.38"
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
 }
 
 test {
