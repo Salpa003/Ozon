@@ -22,4 +22,19 @@ public class UserService {
         session.close();
         return user;
     }
+
+    public long login(String login, String password) {
+        Session session = SessionPool.get();
+        User user = userDao.getByLogin(session,login);
+        if (user==null)
+            return -1;
+        if (user.getPassword().equals(password))
+            return user.getId();
+        else
+            return -2;
+    }
+
+    public void donate(long id, double sum) {
+
+    }
 }
