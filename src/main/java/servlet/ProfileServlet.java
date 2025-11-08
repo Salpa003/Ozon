@@ -21,8 +21,9 @@ public class ProfileServlet extends HttpServlet {
         long id = -1;
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("id"))
-                id = Long.parseLong(cookie.getValue());
+                if (cookie.getName().equals("id")) {
+                    id = Long.parseLong(cookie.getValue());
+                }
             }
         }
         User user = service.get(id);
@@ -32,7 +33,5 @@ public class ProfileServlet extends HttpServlet {
         req.setAttribute("password", user.getPassword());
         req.setAttribute("amount", user.getAmount());
         req.getRequestDispatcher("/jsp/profile.jsp").forward(req, resp);
-
-
     }
 }

@@ -26,6 +26,7 @@ public class UserService {
     public long login(String login, String password) {
         Session session = SessionPool.get();
         User user = userDao.getByLogin(session,login);
+        session.close();
         if (user==null)
             return -1;
         if (user.getPassword().equals(password))
@@ -34,7 +35,10 @@ public class UserService {
             return -2;
     }
 
-    public void donate(long id, double sum) {
-
+    public boolean donate(long id, double sum) {
+        Session session = SessionPool.get();
+        boolean b = userDao.donate(session,id,sum);
+        session.close();
+        return b;
     }
 }

@@ -30,6 +30,14 @@ public class AmountServlet extends HttpServlet {
                     id = Long.parseLong(cookie.getValue());
             }
         }
-       service.donate(id,sum);
+      boolean b = service.donate(id,sum);
+        String message;
+        if (b) {
+            message = String.format("%f donated",sum);
+        } else {
+            message = "error";
+        }
+        req.setAttribute("message",message);
+        req.getRequestDispatcher("/jsp/amount.jsp").forward(req,resp);
     }
 }

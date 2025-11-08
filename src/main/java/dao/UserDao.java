@@ -45,5 +45,20 @@ public class UserDao {
         return user.get(0);
     }
 
+    public boolean donate(Session session, long id, double amount) {
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.createQuery("UPDATE User u set amount = amount+:amount", User.class)
+                    .setParameter("amount", amount);
+            return true;
+        } catch (Exception e) {
+            return false;
+        } finally {
+            transaction.commit();
+            return false;
+        }
+
+    }
+
 
 }
