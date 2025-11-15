@@ -43,7 +43,7 @@
     <a href="/profile">
         <button>🔍</button>
     </a>
-    <a href="/cart">
+    <a href="/amount">
         <button>₽</button>
     </a>
     <a href="/orders">

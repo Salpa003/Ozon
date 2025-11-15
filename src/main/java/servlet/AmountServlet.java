@@ -21,7 +21,7 @@ public class AmountServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       double sum = Double.parseDouble(req.getParameter("sum"));
+       int sum = Integer.parseInt(req.getParameter("sum"));
         Cookie[] cookies = req.getCookies();
         long id = -1;
         if (cookies != null) {
@@ -33,7 +33,7 @@ public class AmountServlet extends HttpServlet {
       boolean b = service.donate(id,sum);
         String message;
         if (b) {
-            message = String.format("%f donated",sum);
+            message = String.format("%d donated",sum);
         } else {
             message = "error";
         }

@@ -35,7 +35,7 @@ public class UserService {
             return -2;
     }
 
-    public boolean donate(long id, double sum) {
+    public boolean donate(long id, int sum) {
         Session session = SessionPool.get();
         boolean b = userDao.donate(session,id,sum);
         session.close();

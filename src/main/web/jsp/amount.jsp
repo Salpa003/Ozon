@@ -12,6 +12,7 @@
             </label>
             <button type="submit">DONATE</button>
         </form>
+        <H1 style="color: green">${message}</H1>
     </center>
 </body>
 </html>

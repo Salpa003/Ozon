@@ -25,5 +25,5 @@ public class User {
     private String password;
 
     @Builder.Default
-    private Double amount = 0.0;
+    private Long amount = 0L;
 }
